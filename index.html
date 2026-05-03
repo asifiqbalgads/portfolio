@@ -590,6 +590,45 @@
       .footer-grid { grid-template-columns: 1fr; gap: 28px; text-align: center; }
       .social-icons { justify-content: center; }
       .footer-nav-links { align-items: center; }
+      /* ── MOBILE SLIDERS ── */
+
+/* Slider wrapper */
+.slider-mob {
+  display: flex;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  gap: 14px;
+  padding-bottom: 12px;
+  scrollbar-width: none;        /* Firefox */
+}
+.slider-mob::-webkit-scrollbar { display: none; }  /* Chrome/Safari */
+
+/* প্রতিটা card একটা slide হবে */
+.slider-mob > * {
+  flex-shrink: 0;
+  width: 82vw;
+  scroll-snap-align: start;
+}
+
+/* Dot indicators */
+.slider-dots {
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+  margin-top: 14px;
+}
+.slider-dots span {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: rgba(223,164,8,0.25);
+  cursor: pointer;
+  transition: background 0.25s, transform 0.25s;
+}
+.slider-dots span.active {
+  background: #dfa408;
+  transform: scale(1.3);
+}
     }
   </style>
 </head>
@@ -1116,6 +1155,59 @@
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.1 });
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+  <script>
+(function() {
+  // শুধু mobile-এ কাজ করবে
+  if (window.innerWidth > 767) return;
+
+  // যে grid-গুলো slider হবে
+  const grids = [
+    '.problem-grid',
+    '.expertise-grid',
+    '.cert-grid',
+    '.who-grid',
+    '.results-grid',
+  ];
+
+  grids.forEach(selector => {
+    const grid = document.querySelector(selector);
+    if (!grid) return;
+
+    // Grid কে slider বানাও
+    grid.classList.add('slider-mob');
+
+    // Dot container তৈরি করো
+    const cards = grid.children;
+    const count = cards.length;
+    if (count < 2) return;
+
+    const dotsWrap = document.createElement('div');
+    dotsWrap.className = 'slider-dots';
+
+    for (let i = 0; i < count; i++) {
+      const dot = document.createElement('span');
+      if (i === 0) dot.classList.add('active');
+      // dot click → ওই card-এ scroll
+      dot.addEventListener('click', () => {
+        cards[i].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+      });
+      dotsWrap.appendChild(dot);
+    }
+
+    // Grid-এর পরে dots বসাও
+    grid.parentNode.insertBefore(dotsWrap, grid.nextSibling);
+
+    // Scroll হলে active dot update করো
+    grid.addEventListener('scroll', () => {
+      const cardWidth = cards[0].offsetWidth + 14; // gap সহ
+      const active = Math.round(grid.scrollLeft / cardWidth);
+      dotsWrap.querySelectorAll('span').forEach((d, i) => {
+        d.classList.toggle('active', i === active);
+      });
+    }, { passive: true });
+  });
+})();
 </script>
 </body>
 </html>
