@@ -189,25 +189,191 @@
 
 /* Mobile */
 @media (max-width: 767px) {
-  .hamburger  { display: flex; }
-  .nav-right  { display: none; }       /* পুরো right side hide হবে mobile-এ */
+
+  /* ===== GLOBAL ===== */
+  body {
+    overflow-x: hidden;
+  }
+
+  /* সাইডে padding — সব section */
+  section, footer {
+    padding-left: 5% !important;
+    padding-right: 5% !important;
+  }
+
+  /* ===== NAVBAR ===== */
+  .hamburger { display: flex; }
+  .nav-right  { display: none !important; }
+
+  /* ===== HERO ===== */
+  #hero {
+    padding-top: 60px;
+    min-height: auto;
+  }
+  .hero-grid {
+    grid-template-columns: 1fr;
+    padding: 32px 0 24px;
+    gap: 28px;
+  }
+  .hero-right {
+    order: -1; /* ছবি আগে আসবে */
+  }
+  .photo-frame img {
+    max-width: 280px;
+    margin: 0 auto;
+  }
+  .hero-name {
+    font-size: 32px;
+    letter-spacing: -0.5px;
+  }
+  .hero-headline {
+    font-size: 18px;
+    line-height: 1.4;
+  }
+  .hero-sub {
+    font-size: 14px;
+  }
+  .hero-contacts {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .hero-contacts .btn,
+  .hero-ctas .btn {
+    font-size: 13px;
+    padding: 10px 18px;
+    min-height: 44px;
+  }
+  .hero-ctas {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .hero-ctas .btn {
+    text-align: center;
+    justify-content: center;
+  }
+
+  /* ===== STATS ===== */
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+  .stat-num { font-size: 36px; }
+
+  /* ===== SECTION HEADINGS ===== */
+  .section-heading {
+    font-size: 26px;
+  }
+
+  /* ===== ABOUT ===== */
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .about-photo img {
+    max-width: 100%;
+  }
+
+  /* ===== PROBLEM ===== */
+  .problem-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .problem-card {
+    padding: 24px 20px;
+  }
+
+  /* ===== EXPERTISE ===== */
+  .expertise-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  /* ===== TIMELINE / FRAMEWORK ===== */
+  .timeline::before { display: none; }
+  .timeline-item {
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+  .timeline-num {
+    width: 48px;
+    height: 48px;
+    font-size: 18px;
+  }
+  .timeline-title { font-size: 17px; }
+
+  /* ===== CASE STUDY ===== */
+  .case-study-meta {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .results-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .result-num { font-size: 24px; }
+
+  /* ===== WHO I WORK WITH ===== */
+  .who-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .who-card { padding: 28px 20px; }
+
+  /* ===== WHY ME ===== */
+  .why-point {
+    flex-direction: column;
+    gap: 8px;
+    padding: 24px 0;
+  }
+  .why-num {
+    font-size: 36px;
+    min-width: unset;
+  }
+
+  /* ===== CERTIFICATIONS ===== */
+  .cert-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  /* ===== TOOLS ===== */
+  .tool-tags { gap: 8px; }
+  .tool-tag {
+    font-size: 13px;
+    padding: 10px 14px;
+  }
+
+  /* ===== CONTACT ===== */
+  .contact-btns {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+  .contact-btns .btn {
+    text-align: center;
+    justify-content: center;
+    min-height: 50px;
+    font-size: 15px;
+  }
+
+  /* ===== FOOTER ===== */
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    text-align: center;
+  }
+  .social-icons { justify-content: center; }
+  .footer-nav-links { align-items: center; }
 }
 
-   <!-- Mobile Nav Overlay — এটাও update কর -->
-<div id="mobile-nav">
-  <a href="https://asifiqbaloffical.github.io/Portfolio/" class="mobile-link">Home</a>
-  <a href="#about" class="mobile-link">About Me</a>
-  <a href="#expertise" class="mobile-link">Expertise</a>
-  <a href="https://asifiqbaloffical.github.io/Case-Study-Toronto/"
-     class="mobile-link" target="_blank" rel="noopener noreferrer">Case Study</a>
-  <a href="#certifications" class="mobile-link">Certifications</a>
-  <a href="#contact" class="mobile-link">Contact</a>
-  <a href="https://www.linkedin.com/in/asifiqbalofficial"
-     class="mobile-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-  <a href="https://wa.me/8801614021914"
-     target="_blank" rel="noopener noreferrer"
-     class="btn btn-gold">Hire Me</a>
-</div>
+/* ===== TABLET ===== */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .expertise-grid { grid-template-columns: 1fr 1fr; }
+  .results-grid   { grid-template-columns: 1fr 1fr; }
+  .hero-name      { font-size: 40px; }
+  .hero-headline  { font-size: 22px; }
+}
 
     /* ===== HERO SECTION ===== */
     #hero {
@@ -474,24 +640,42 @@
     @media (max-width: 767px) {
       .hamburger { display: flex; margin-left: auto; }
       .nav-links, .nav-cta { display: none !important; }
-      #mobile-nav { display: flex; }
-      .hero-grid { grid-template-columns: 1fr; padding: 40px 0 30px; }
-      .hero-right { order: -1; }
-      .hero-name { font-size: 36px; }
-      .hero-headline { font-size: 20px; }
-      .section-heading { font-size: 28px; }
-      .about-grid { grid-template-columns: 1fr; }
-      .problem-grid { grid-template-columns: 1fr; }
-      .expertise-grid { grid-template-columns: 1fr; }
-      .results-grid { grid-template-columns: 1fr 1fr; }
-      .cert-grid { grid-template-columns: 1fr; }
-      .who-grid { grid-template-columns: 1fr; }
-      .stats-grid { grid-template-columns: 1fr; }
-      .footer-grid { grid-template-columns: 1fr; }
-      .contact-btns { flex-direction: column; align-items: center; }
-      .timeline::before { display: none; }
-      .timeline-item { flex-direction: column; gap: 16px; }
-    }
+      #mobile-nav {
+  display: none;
+  position: fixed;
+  top: 60px; left: 0; right: 0; bottom: 0;
+  background: rgba(3, 25, 34, 0.98);
+  z-index: 999;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  padding: 40px 20px;
+}
+#mobile-nav.open {
+  opacity: 1;
+}
+#mobile-nav a {
+  color: var(--white);
+  font-size: 20px;
+  font-weight: 600;
+  transition: color 0.2s;
+  padding: 8px 0;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+#mobile-nav a:hover {
+  color: var(--gold);
+}
+#mobile-nav .btn {
+  margin-top: 16px;
+  padding: 14px 40px;
+  font-size: 16px;
+  min-height: 44px;
+}
   </style>
 </head>
 <body>
@@ -1018,23 +1202,32 @@
     document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
   });
 
-  // ===== HAMBURGER MENU =====
-  const hamburger = document.getElementById('hamburger');
-  const mobileNav = document.getElementById('mobile-nav');
-  hamburger.addEventListener('click', () => {
-    const isOpen = hamburger.classList.toggle('open');
-    mobileNav.style.display = isOpen ? 'flex' : 'none';
-    setTimeout(() => { mobileNav.classList.toggle('open', isOpen); }, 10);
-    document.body.style.overflow = isOpen ? 'hidden' : '';
+ // ===== HAMBURGER MENU =====
+const hamburger = document.getElementById('hamburger');
+const mobileNav = document.getElementById('mobile-nav');
+
+hamburger.addEventListener('click', () => {
+  const isOpen = hamburger.classList.toggle('open');
+  if (isOpen) {
+    mobileNav.style.display = 'flex';
+    setTimeout(() => mobileNav.classList.add('open'), 10);
+    document.body.style.overflow = 'hidden';
+  } else {
+    mobileNav.classList.remove('open');
+    setTimeout(() => mobileNav.style.display = 'none', 300);
+    document.body.style.overflow = '';
+  }
+});
+
+// সব mobile link click করলে menu বন্ধ হবে
+document.querySelectorAll('#mobile-nav a').forEach(link => {
+  link.addEventListener('click', () => {
+    hamburger.classList.remove('open');
+    mobileNav.classList.remove('open');
+    setTimeout(() => mobileNav.style.display = 'none', 300);
+    document.body.style.overflow = '';
   });
-  document.querySelectorAll('#mobile-nav a, .mobile-link').forEach(link => {
-    link.addEventListener('click', () => {
-      hamburger.classList.remove('open');
-      mobileNav.style.display = 'none';
-      mobileNav.classList.remove('open');
-      document.body.style.overflow = '';
-    });
-  });
+});
 
   // ===== INTERSECTION OBSERVER: FADE IN =====
   const observer = new IntersectionObserver((entries) => {
