@@ -104,50 +104,110 @@
     .tag-outline { background: transparent; color: var(--grey-text); border: 1px solid rgba(160,168,176,0.4); }
 
     /* ===== FIXED NAVIGATION ===== */
-    #navbar {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-      background: var(--dark); height: 70px;
-      display: flex; align-items: center;
-      padding: 0 5%;
-      border-bottom: 1px solid rgba(223,164,8,0.15);
-      transition: box-shadow 0.3s;
-    }
-    #navbar.scrolled { box-shadow: 0 4px 30px rgba(0,0,0,0.4); }
-    .nav-logo {
-      font-family: var(--heading-font); font-size: 22px; font-weight: 700;
-      color: var(--gold); letter-spacing: 0.5px; flex-shrink: 0;
-    }
-    .nav-links {
-      display: flex; align-items: center; gap: 32px;
-      margin-left: auto; list-style: none;
-    }
-    .nav-links a {
-      color: rgba(255,255,255,0.85); font-size: 14px; font-weight: 400;
-      position: relative; padding-bottom: 4px; transition: color 0.2s;
-    }
-    .nav-links a::after {
-      content: ''; position: absolute; bottom: 0; left: 0;
-      width: 0; height: 2px; background: var(--gold); transition: width 0.3s;
-    }
-    .nav-links a:hover, .nav-links a.active { color: var(--gold); }
-    .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
-    .nav-cta { margin-left: 24px; }
-    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 5px; }
-    .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); transition: all 0.3s; }
-    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; }
-    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+#navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  background: var(--dark);
+  height: 60px;                          /* আগের 70px থেকে একটু ছোট */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;        /* বাম পাশে নাম, ডান পাশে nav */
+  padding: 0 4%;
+  border-bottom: 1px solid rgba(223,164,8,0.15);
+  transition: box-shadow 0.3s;
+}
+#navbar.scrolled {
+  box-shadow: 0 4px 30px rgba(0,0,0,0.4);
+}
+.nav-logo {
+  font-family: var(--heading-font);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 0.5px;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+/* Right side wrapper */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin-left: auto;                     /* logo-র পরে সব ফাঁকা জায়গা push করে */
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.nav-links a {
+  color: rgba(255,255,255,0.85);
+  font-size: 13.5px;
+  font-weight: 400;
+  position: relative;
+  padding-bottom: 4px;
+  transition: color 0.2s;
+  white-space: nowrap;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0; height: 2px;
+  background: var(--gold);
+  transition: width 0.3s;
+}
+.nav-links a:hover,
+.nav-links a.active { color: var(--gold); }
+.nav-links a:hover::after,
+.nav-links a.active::after { width: 100%; }
 
-    /* Mobile overlay nav */
-    #mobile-nav {
-      display: none; position: fixed; top: 70px; left: 0; right: 0; bottom: 0;
-      background: var(--dark); z-index: 999; flex-direction: column;
-      align-items: center; justify-content: center; gap: 32px;
-      opacity: 0; transition: opacity 0.3s;
-    }
-    #mobile-nav.open { opacity: 1; }
-    #mobile-nav a { color: var(--white); font-size: 22px; font-weight: 600; transition: color 0.2s; }
-    #mobile-nav a:hover { color: var(--gold); }
+.nav-cta { margin-left: 20px; }
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 5px;
+  background: none;
+  border: none;
+}
+.hamburger span {
+  display: block;
+  width: 24px; height: 2px;
+  background: var(--white);
+  transition: all 0.3s;
+}
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Mobile */
+@media (max-width: 767px) {
+  .hamburger  { display: flex; }
+  .nav-right  { display: none; }       /* পুরো right side hide হবে mobile-এ */
+}
+
+   <!-- Mobile Nav Overlay — এটাও update কর -->
+<div id="mobile-nav">
+  <a href="https://asifiqbaloffical.github.io/Portfolio/" class="mobile-link">Home</a>
+  <a href="#about" class="mobile-link">About Me</a>
+  <a href="#expertise" class="mobile-link">Expertise</a>
+  <a href="https://asifiqbaloffical.github.io/Case-Study-Toronto/"
+     class="mobile-link" target="_blank" rel="noopener noreferrer">Case Study</a>
+  <a href="#certifications" class="mobile-link">Certifications</a>
+  <a href="#contact" class="mobile-link">Contact</a>
+  <a href="https://www.linkedin.com/in/asifiqbalofficial"
+     class="mobile-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+  <a href="https://wa.me/8801614021914"
+     target="_blank" rel="noopener noreferrer"
+     class="btn btn-gold">Hire Me</a>
+</div>
 
     /* ===== HERO SECTION ===== */
     #hero {
@@ -441,23 +501,33 @@
 
 <!-- ===== NAVIGATION ===== -->
 <header id="navbar">
-  <a href="#hero" class="nav-logo">Md. Asif Iqbal</a>
-  <nav>
+  <a href="https://asifiqbaloffical.github.io/Portfolio/" class="nav-logo">Md. Asif Iqbal</a>
+
+  <nav class="nav-right">
     <ul class="nav-links">
-      <li><a href="#about">About</a></li>
+      <li><a href="https://asifiqbaloffical.github.io/Portfolio/">Home</a></li>
+      <li><a href="#about">About Me</a></li>
       <li><a href="#expertise">Expertise</a></li>
-      <li><a href="https://asifiqbaloffical.github.io/Case-Study-Toronto/" target="_blank" rel="noopener noreferrer">Case Study</a></li>
+      <li>
+        <a href="https://asifiqbaloffical.github.io/Case-Study-Toronto/"
+           target="_blank" rel="noopener noreferrer">Case Study</a>
+      </li>
       <li><a href="#certifications">Certifications</a></li>
       <li><a href="#contact">Contact</a></li>
+      <li>
+        <a href="https://www.linkedin.com/in/asifiqbalofficial"
+           target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      </li>
     </ul>
+    <a href="https://wa.me/8801614021914"
+       target="_blank" rel="noopener noreferrer"
+       class="btn btn-gold btn-sm nav-cta">Hire Me</a>
   </nav>
-  <a href="mailto:asifiqbal.gads@gmail.com" class="btn btn-gold btn-sm nav-cta">Hire Me</a>
+
   <button class="hamburger" id="hamburger" aria-label="Open menu">
     <span></span><span></span><span></span>
   </button>
-</header>
-
-<!-- Mobile Nav Overlay -->
+</header><!-- Mobile Nav Overlay -->
 <div id="mobile-nav">
   <a href="#about" class="mobile-link">About</a>
   <a href="#expertise" class="mobile-link">Expertise</a>
