@@ -28,11 +28,10 @@
   <link rel="canonical" href="https://asifiqbalgads.github.io/portfolio/" />
   <link rel="icon" type="image/webp" href="images/icon.webp" />
   <link rel="apple-touch-icon" href="images/icon.webp" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://assets.calendly.com" />
   <link rel="preload" as="image" href="images/hero.webp" fetchpriority="high" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" href="fonts/dm-sans-v17-latin-regular.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="fonts/playfair-display-v40-latin-700.woff2" crossorigin>
   <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 
   <script type="application/ld+json">
@@ -76,6 +75,49 @@
   </script>
 
   <style>
+    @font-face {
+      font-family: 'DM Sans';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url('fonts/dm-sans-v17-latin-regular.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'DM Sans';
+      font-style: normal;
+      font-weight: 500;
+      font-display: swap;
+      src: url('fonts/dm-sans-v17-latin-500.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'DM Sans';
+      font-style: normal;
+      font-weight: 600;
+      font-display: swap;
+      src: url('fonts/dm-sans-v17-latin-600.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'DM Sans';
+      font-style: normal;
+      font-weight: 700;
+      font-display: swap;
+      src: url('fonts/dm-sans-v17-latin-700.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'Playfair Display';
+      font-style: normal;
+      font-weight: 700;
+      font-display: swap;
+      src: url('fonts/playfair-display-v40-latin-700.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'Playfair Display';
+      font-style: normal;
+      font-weight: 900;
+      font-display: swap;
+      src: url('fonts/playfair-display-v40-latin-900.woff2') format('woff2');
+    }
+
     :root {
       --dark:        #021520;
       --dark-light:  #0b2e40;
