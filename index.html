@@ -609,6 +609,74 @@
     .tool-icon { font-size: 20px; }
 
     /* ══════════════════════════════════
+   FAQ
+══════════════════════════════════ */
+#faq { background: var(--white); padding: 100px 6%; }
+.faq-intro { color: var(--grey-mid); max-width: 700px; margin: 18px auto 52px; text-align: center; font-size: 17px; line-height: 1.85; }
+.faq-list { max-width: 860px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
+.faq-item {
+  background: var(--off-white);
+  border: 1px solid rgba(2,21,32,0.08);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+.faq-item.active { border-color: rgba(240,180,41,0.5); box-shadow: 0 12px 32px rgba(2,21,32,0.08); }
+.faq-question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 22px 26px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--dark);
+  transition: color 0.2s;
+}
+.faq-question:hover { color: var(--gold-dim); }
+.faq-icon {
+  flex-shrink: 0;
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  background: rgba(240,180,41,0.12);
+  color: var(--gold-dim);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1;
+  transition: transform 0.3s, background 0.3s, color 0.3s;
+}
+.faq-item.active .faq-icon { background: var(--gold); color: var(--dark); transform: rotate(45deg); }
+.faq-answer-wrap {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+.faq-item.active .faq-answer-wrap { max-height: 400px; }
+.faq-answer {
+  padding: 0 26px 24px;
+  color: var(--grey-mid);
+  font-size: 16px;
+  line-height: 1.8;
+  border-top: 1px solid rgba(2,21,32,0.06);
+  padding-top: 16px;
+  margin: 0 26px;
+}
+@media (max-width: 767px) {
+  .faq-question { padding: 17px 18px; font-size: 15px; gap: 10px; }
+  .faq-answer { padding-top: 14px; margin: 0 18px; font-size: 14.5px; }
+  .faq-answer-wrap.active,
+  .faq-item.active .faq-answer-wrap { max-height: 500px; }
+  .faq-icon { width: 26px; height: 26px; font-size: 16px; }
+}
+
+    /* ══════════════════════════════════
        CONTACT
     ══════════════════════════════════ */
     #contact { background: var(--off-white); padding: 100px 6%; text-align: center; }
@@ -776,6 +844,7 @@
     <a href="https://asifiqbalgads.github.io/portfolio/" class="active">Home</a>
     <a href="#about">About Me</a>
     <a href="#expertise">Expertise</a>
+    <a href="#faq">FAQ</a>
     <a href="https://asifiqbalgads.github.io/Case-Study-Toronto/" target="_blank" rel="noopener noreferrer">Case Study</a>
     <a href="#certifications">Certifications</a>
     <a href="#contact">Contact</a>
@@ -914,6 +983,127 @@
   </div>
 </section>
 
+    <!-- FAQ -->
+<section id="faq">
+  <div style="text-align:center;padding:0 6%;">
+    <h2 class="section-heading centered fade-in">Frequently Asked Questions</h2>
+    <p class="faq-intro fade-in">Straight answers to the questions local service business owners ask most before starting Google Ads — no fluff, no sales pitch.</p>
+  </div>
+  <div class="faq-list">
+
+    <div class="faq-item fade-in">
+      <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-1">
+        How much does Google Ads cost per month for a small local business?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer-wrap" id="faq-answer-1">
+        <p class="faq-answer">Most local businesses spend $1,500–$8,000/month. Under $500/month usually isn't enough to get real data.</p>
+      </div>
+    </div>
+
+    <div class="faq-item fade-in">
+      <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-2">
+        How much does a Google Ads click cost for home service businesses?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer-wrap" id="faq-answer-2">
+        <p class="faq-answer">Usually $6–$15 per click for trades like plumbing/HVAC, higher ($20–$30+) for legal or insurance. Big cities cost more.</p>
+      </div>
+    </div>
+
+    <div class="faq-item fade-in">
+      <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-3">
+        How long does it take to see leads from a new Google Ads campaign?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer-wrap" id="faq-answer-3">
+        <p class="faq-answer">First leads can come in 24–48 hours, but Google needs 2–3 weeks to "learn," and results really stabilize after 60–90 days.</p>
+      </div>
+    </div>
+
+    <div class="faq-item fade-in">
+      <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-4">
+        What is a good cost per lead for plumbing, HVAC, or roofing Google Ads campaigns?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer-wrap" id="faq-answer-4">
+        <p class="faq-answer">Typically $30–$150 per lead, depending on trade and competition. Emergency services usually cost more.</p>
+      </div>
+    </div>
+
+    <div class="faq-item fade-in">
+      <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-5">
+        Is Google Ads or Google Local Services Ads better for my business?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer-wrap" id="faq-answer-5">
+        <p class="faq-answer">Google Ads = pay per click, more control. LSA = pay per lead, less control, only certain trades/countries. Many businesses use both.</p>
+      </div>
+    </div>
+
+    <div class="faq-item fade-in">
+      <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-6">
+        How do I know if my Google Ads agency is actually delivering results?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer-wrap" id="faq-answer-6">
+        <p class="faq-answer">Ask: Do they track calls to the exact keyword? Do they report cost-per-lead (not just clicks)? Do they actively manage negative keywords?</p>
+      </div>
+    </div>
+
+    <div class="faq-item fade-in">
+      <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-7">
+        Why am I getting clicks but no calls or leads from Google Ads?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer-wrap" id="faq-answer-7">
+        <p class="faq-answer">Usually a landing page problem, not a traffic problem. Check page speed, phone number visibility, and whether the offer matches the ad.</p>
+      </div>
+    </div>
+
+    <div class="faq-item fade-in">
+      <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-8">
+        What is the average cost per lead for home services on Google Ads in the USA?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer-wrap" id="faq-answer-8">
+        <p class="faq-answer">Typically $50–$200. Legal, dental, and HVAC run higher due to competition and high customer value.</p>
+      </div>
+    </div>
+
+    <div class="faq-item fade-in">
+      <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-9">
+        Are Google Local Services Ads available for my business in Canada?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer-wrap" id="faq-answer-9">
+        <p class="faq-answer">Yes, for most home service trades — but coverage varies by province, and Quebec is slower to roll out. Check eligibility by city.</p>
+      </div>
+    </div>
+
+    <div class="faq-item fade-in">
+      <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-10">
+        Is Google Local Services Ads available for local businesses in Australia?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer-wrap" id="faq-answer-10">
+        <p class="faq-answer">Not consistently — many Australian businesses can't sign up yet. Standard Search Ads + a strong Google Business Profile is the safer bet for now.</p>
+      </div>
+    </div>
+
+    <div class="faq-item fade-in">
+      <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-11">
+        What's the difference between Google Ads and a Google Business Profile for getting more customers?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer-wrap" id="faq-answer-11">
+        <p class="faq-answer">Google Ads = paid, instant, controllable. Google Business Profile = free, but takes time and depends on reviews/proximity. Best results come from using both.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <!-- CASE STUDY (redesigned) -->
 <section id="case-study">
   <div class="case-study-inner">
@@ -1046,6 +1236,7 @@
         <a href="https://asifiqbalgads.github.io/portfolio/">Home</a>
         <a href="#about">About Me</a>
         <a href="#expertise">Expertise</a>
+        <a href="#faq">FAQ</a>
         <a href="https://asifiqbalgads.github.io/Case-Study-Toronto/" target="_blank" rel="noopener noreferrer">Case Study</a>
         <a href="#certifications">Certifications</a>
         <a href="#contact">Contact</a>
@@ -1150,6 +1341,23 @@ window.addEventListener('scroll', () => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.08 });
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const isActive = item.classList.contains('active');
+      document.querySelectorAll('.faq-item').forEach(i => {
+        i.classList.remove('active');
+        i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+      });
+      if (!isActive) {
+        item.classList.add('active');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+  
   // Mobile sliders
   (function() {
     if (window.innerWidth > 767) return;
